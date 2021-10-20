@@ -9,18 +9,14 @@ import java.util.ArrayList;
 
 public class SolicitacaoDao {
  
-	public void cadastrar(Solicitacao Solicitaacao) {
+	public void cadastrar(Solicitacao solicitacao) {
 		Connection con = Conexao.receberConexao();
-		String sql = "insert into funcionario (nome, cpf, idade, rg, funcao, endereco, salario) values (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into solicitacao (titulo, desc_solic, data_solic) values (?, ?, ?)";
 		try {
 			PreparedStatement preparador = con.prepareStatement(sql);
-			preparador.setString(1, funcionario.getNome());
-			preparador.setString(2, funcionario.getCpf());
-			preparador.setInt(3, funcionario.getIdade());
-			preparador.setString(4, funcionario.getRg());
-			preparador.setString(5, funcionario.getFuncao());
-			preparador.setString(6, funcionario.getEndereco());
-			preparador.setDouble(7, funcionario.getSalario());
+			preparador.setString(1, solicitacao.getTitulo());
+			preparador.setString(2, solicitacao.getDesc_Solic());
+			preparador.setString(3, solicitacao.getData_Solic());
 			preparador.execute();
 			System.out.println("Funcionario Cadastrado com sucesso");
 		} catch(SQLException e) {
