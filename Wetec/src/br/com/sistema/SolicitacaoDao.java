@@ -23,4 +23,30 @@ public class SolicitacaoDao {
 			System.err.println("Não foi possivel cadastrar");
 		}
 	}
+	
+	public ArrayList<Solicitacao>mostrarTodos(){
+		Connection con = Conexao.receberConexao();
+		ArrayList<Solicitacao> solicitacao = new ArrayList<>();
+		String sql = "select * from vendas";
+		PreparedStatement preparador;
+		try {
+			preparador = con.prepareStatement(sql);
+			ResultSet resultado = preparador.executeQuery();
+			while(resultado.next()) {
+				Solicitacao solicitacaos = new Solicitacao();
+				solicitacaos.setId_Solic(resultado.getInt("id"));
+				solicitacaos.setTitulo(resultado.getString("titulo"));
+				solicitacaos.setDesc_Solic(resultado.getString("nomeCliente"));
+				solicitacaos.setPonto(resultado.getDouble("horaVenda"));
+				solicitacaos.setData_Solic(resultado.getString("prodComprado"));
+				solicitacaos.setResposta(resultado.getString("resposta"));
+				solicitacaos.setId_user_resposta(resultado.getInt("id_user_resposta"));
+				solicitacaos.setUser_resposta(resultado.getString("user_resposta"));
+				solicitacao.add(solicitacaos);
+			}
+		} catch(SQLException e) {
+			System.err.println("Não foi possivel realizar ação");
+		}
+		return solicitacao;
+	}
 }
