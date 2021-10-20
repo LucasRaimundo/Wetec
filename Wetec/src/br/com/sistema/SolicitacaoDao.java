@@ -11,7 +11,7 @@ public class SolicitacaoDao {
  
 	public void cadastrar(Solicitacao solicitacao) {
 		Connection con = Conexao.receberConexao();
-		String sql = "insert into solicitacao (titulo, desc_solic, data_solic) values (?, ?, ?)";
+		String sql = "insert into solicitacao (tituo, tecnologia, desc_solic, data_solic) values (?, ?, ?, ?)";
 		try {
 			PreparedStatement preparador = con.prepareStatement(sql);
 			preparador.setString(1, solicitacao.getTitulo());
