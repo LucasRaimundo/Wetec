@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `solicitacao` (
   `id_solic` int(11) NOT NULL AUTO_INCREMENT,
-  `tituo` varchar(100) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
   `tecnologia` varchar(50) NOT NULL,
   `desc_solic` varchar(200) NOT NULL,
-  `ponto` double DEFAULT NULL,
+  `moedas` double DEFAULT NULL,
   `data_solic` varchar(10) NOT NULL,
   `resposta` varchar(200) DEFAULT NULL,
   `id_user_resposta` int(11) DEFAULT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `senha` varchar(200) NOT NULL,
   `nivel_conhecimento` varchar(100) NOT NULL,
   `tecnologia` varchar(100) NOT NULL,
-  `ponto_acumulado` double NOT NULL,
+  `moeda_acumulada` double NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
