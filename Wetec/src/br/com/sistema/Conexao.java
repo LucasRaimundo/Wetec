@@ -7,11 +7,12 @@ public class Conexao {
 	public static Connection receberConexao() {
 		Connection con = null;
 		try {
-			con = DriverManager.getConnection("jdbc:mysql://localhost/wetec", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/wetec", "root","C@bral123");
 			System.out.println("Banco conectado com sucesso");
 		} catch (SQLException e) {
 			System.err.println("Banco não conectado");
 		}
+		
 		
 		return con;
 }
